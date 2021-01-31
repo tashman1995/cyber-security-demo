@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Alerts</title>
+        <link rel="preconnect" href="https://fonts.gstatic.com">
+        <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;600;800&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="./style.css">
+        <script src='https://api.mapbox.com/mapbox-gl-js/v2.0.1/mapbox-gl.js'></script>
+        <link href='https://api.mapbox.com/mapbox-gl-js/v2.0.1/mapbox-gl.css' rel='stylesheet' />
+        <script src="https://d3js.org/d3.v4.js"></script>
+        
+    </head>
+    <body>
+        <div class="container">
+        <div class="side-bar">
+            <div class="side-bar__section side-bar__section--title">
+                <h3>Abnormal Activity</h3>
+            </div>
+            <div class="side-bar__section" id="severity-high">
+                
+            </div>
+            <div class="side-bar__section" id="severity-medium">
+            
+            </div>
+            <div class="side-bar__section" id="severity-low">
+            
+            </div>
+            <div class="side-bar__section" id="severity-benign">
+        
+            </div>
+        </div>
+        <div class="world-map">
+            <div class="info">
+                <div class="info__container">
+               <h4>Total Breaches: </h4> <h4 class="info__number" id="number-of-breaches">0</>
+                </div>
+                <div class="info__container">
+                    <h4>Total Models: </h4> <h4 class="info__number" id="number-of-models">0</>
+                </div>
+                <div class="info__container">
+                    <h4>Total Users: </h4> <h4 class="info__number" id="number-of-users">0</>
+                </div>
+            </div>
+            <div class="key">
+               <div class="key__item">
+                <h4 style=" margin-right: .6rem;">High Severity Breach</h4>
+                 <div class="marker high" style="transform: scale(2);"></div>
+               </div>
+               <div class="key__item">
+                <h4 style=" margin-right: .6rem;">Medium Severity Breach</h4>
+                 <div class="marker medium" style="transform: scale(2); "></div>
+               </div>
+                
+            </div>
+            <div class="map mapboxgl-map" id="mapBox">
+                <div class="mapboxgl-canvas-container">
+                    <canvas class="mapboxgl-canvas" style="position: absolute; width: 1920px; height: 277px;" tabindex="0" aria-label="Map" width="1920" height="277">
+                </canvas>
+            </div>
+        </div>
+        </div>
+        <div class="graph">
+             <div id="graph" class="graph__diagram" ></div>
+        </div>
+        </div>
+        
+        
+        <script type="module" src="./js/app.js"></script>
+       
+       
+    
+    </body>
+</html>

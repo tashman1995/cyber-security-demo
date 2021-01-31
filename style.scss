@@ -1,0 +1,219 @@
+// Variables
+$color-white: #cccccc;
+$color-grey: #1a1a1a;
+$color-black: #0c0c0c;
+$color-red: #ff5555;
+$color-orange: #f78c00;
+$color-yellow: #ffd755;
+
+// General
+* {
+  margin: 0;
+  padding: 0;
+}
+
+*,
+::after,
+::before {
+  box-sizing: inherit;
+}
+
+html {
+  box-sizing: border-box;
+  // font-size: 62.5%; //1rem is 10px
+  font-size: 62.5%;
+}
+
+body {
+  font-family: "Open Sans", sans-serif;
+  background-color: $color-black;
+  color: $color-white;
+  font-size: 1.4rem;
+}
+
+// Screen wide container
+.container {
+  height: 100vh;
+  width: 100vw;
+  display: grid;
+  grid-gap: 0.6rem;
+  padding: 0.6rem;
+  grid-template-columns: 30rem 1fr;
+  grid-template-rows: 1fr 25rem;
+  overflow: hidden;
+}
+
+// Typography
+
+h3 {
+  font-size: 2.2rem;
+  font-weight: 600;
+}
+
+h4 {
+  margin: 0;
+  padding: 0;
+  margin-bottom: 0.6rem;
+  font-weight: 300;
+  font-size: 1.8rem;
+}
+
+// Breach headers
+#severity-high h4 {
+  color: $color-red;
+}
+#severity-medium h4 {
+  color: $color-orange;
+}
+#severity-low h4 {
+  color: $color-yellow;
+}
+
+// Sidebar
+
+.side-bar {
+  grid-row: 1 / 3;
+  grid-template-columns: 1/3;
+  display: flex;
+  flex-direction: column;
+
+  &__section {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    background-color: $color-grey;
+    padding: 2.4rem 2.4rem;
+    &:not(:last-child) {
+      margin-bottom: 0.6rem;
+    }
+    &:first-child {
+      height: 25rem;
+    }
+  }
+}
+
+// Map styling
+.world-map {
+  background-color: $color-black;
+  grid-column: 2 /3;
+  grid-row: 1 /2;
+  position: relative;
+}
+
+.map {
+  grid-column: 1/-1;
+  height: 100%;
+  position: relative;
+  canvas,
+  .mapboxgl-canvas {
+    height: 100%;
+  }
+}
+// Map markers
+.marker {
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+}
+
+.high {
+  z-index: 3;
+  background-color: $color-red;
+  -webkit-box-shadow: 0px 0px 5px 0px $color-red;
+  -moz-box-shadow: 0px 0px 5px 0px $color-red;
+  box-shadow: 0px 0px 5px 0px $color-red;
+}
+
+.medium {
+  z-index: 2;
+  background-color: $color-orange;
+  -webkit-box-shadow: 0px 0px 5px 0px $color-orange;
+  -moz-box-shadow: 0px 0px 5px 0px $color-orange;
+  box-shadow: 0px 0px 5px 0px $color-orange;
+}
+
+// Map Key
+.key {
+  position: absolute;
+  z-index: 9999999;
+  left: 0;
+  bottom: 0;
+  margin: 0rem;
+  background-color: $color-grey;
+  padding: 1.2rem 2.4rem;
+  &__item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  & .marker {
+    margin-left: 1.8rem;
+  }
+}
+
+// Info on top of map (totals)
+
+.info {
+  position: absolute;
+  z-index: 4;
+  margin: 2.4rem 2vw;
+  display: flex;
+  justify-content: center;
+  width: 100%;
+
+  &__container {
+    background-color: $color-grey;
+    width: 30rem;
+    padding: 1.2rem 3.6rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    &:not(:first-child) {
+      margin-left: 4.8rem;
+    }
+  }
+
+  &__number {
+    font-size: larger;
+    margin-left: 1.2rem;
+  }
+}
+
+// Line Chart Styling
+.graph {
+  background-color: $color-grey;
+  grid-column: 2 /3;
+  grid-row: 2 /3;
+  padding: 2.4rem 1.4rem 1.4rem 1.4rem;
+
+  &__diagram {
+    width: 100%;
+    height: 100%;
+  }
+}
+
+.domain {
+  stroke: $color-white;
+}
+line {
+  stroke: white;
+  stroke-width: 3;
+}
+
+path {
+  stroke: $color-orange;
+  stroke-width: 2;
+  fill: none;
+}
+
+text {
+  fill: $color-white;
+}
+
+.axis-title {
+  font-size: 1.6rem;
+}
